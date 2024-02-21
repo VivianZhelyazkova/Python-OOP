@@ -29,4 +29,3 @@ class Trainer:
         for pokemon in self.pokemons:
             result += f"- {pokemon.pokemon_details()}\n"
         return result
-
