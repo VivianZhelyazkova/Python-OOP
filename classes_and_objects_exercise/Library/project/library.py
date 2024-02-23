@@ -9,7 +9,7 @@ class Library:
         # {usernames: {book names: days to return}}
 
     def get_book(self, author: str, book_name: str, days_to_return: int, user: User):
-        if book_name in self.books_available.get(author):
+        if book_name in self.books_available[author]:
             if user.username in self.rented_books:
                 self.rented_books[user.username][book_name] = days_to_return
             else:
