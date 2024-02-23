@@ -12,9 +12,9 @@ class Registration:
 
     def remove_user(self, user: User, library: Library):
         if user in library.user_records:
-            return "We could not find such user to remove!"
-        else:
             library.user_records.remove(user)
+        else:
+            return "We could not find such user to remove!"
 
     def change_username(self, user_id: int, new_username: str, library: Library):
         for user in library.user_records:
