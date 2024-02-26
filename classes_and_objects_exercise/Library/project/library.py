@@ -17,11 +17,11 @@ class Library:
             self.books_available[author].remove(book_name)
             user.books.append(book_name)
             return f"{book_name} successfully rented for the next {days_to_return} days!"
-        else:
-            for username, info in self.rented_books.items():
-                for name, days in info.items():
-                    if name == book_name:
-                        days_to_return = days
+
+        for username, info in self.rented_books.items():
+            for name, days in info.items():
+                if name == book_name:
+                    days_to_return = days
             return f'The book "{book_name}" is already rented and will be available in {days_to_return} days!'
 
     def return_book(self, author: str, book_name: str, user: User):
