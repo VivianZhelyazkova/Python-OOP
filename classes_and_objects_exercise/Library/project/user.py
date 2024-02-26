@@ -8,4 +8,4 @@ class User:
         return ", ".join(sorted(self.books))
 
     def __str__(self):
-        return f"{self.user_id}, {self.username}, {sorted(self.books)}"
+        return f"{self.user_id}, {self.username}, {self.info}"
