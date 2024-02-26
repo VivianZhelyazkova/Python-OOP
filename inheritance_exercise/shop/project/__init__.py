@@ -1,7 +1,7 @@
-# from project.food import Food
-# from project.drink import Drink
-# from project.product_repository import ProductRepository
-# from project.product import Product
+# from food import Food
+# from drink import Drink
+# from product_repository import ProductRepository
+# from product import Product
 # 
 # food = Food("apple")
 # drink = Drink("water")
