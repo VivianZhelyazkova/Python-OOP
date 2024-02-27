@@ -1,8 +1,6 @@
 class Person:
     def __init__(self, name: str, age: int):
-        self.__validate_name(name)
-        self.__validate_age(age)
-        self.__name = name
+        self.name = name
         self.__age = age
 
     def __validate_name(self, name: str):
@@ -32,7 +30,6 @@ class Person:
         self.__age = age
 
 
-person = Person("egf", 54)
-person.name = "et"
+person = Person("e", 54)
 print(person.name)
 print(person.age)
