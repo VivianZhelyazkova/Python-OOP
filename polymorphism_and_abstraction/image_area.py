@@ -23,4 +23,3 @@ class ImageArea:
 
     def __ge__(self, other):
         return self.get_area() >= other.get_area()
-
