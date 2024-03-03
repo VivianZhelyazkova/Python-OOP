@@ -34,4 +34,3 @@ class Rectangle(Shape):
 
     def calculate_perimeter(self):
         return 2 * self.__width + self.__height * 2
-
