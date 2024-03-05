@@ -10,4 +10,3 @@ class Music:
 
     def play(self):
         return self.lyrics
-
