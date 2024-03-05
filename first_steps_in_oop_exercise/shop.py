@@ -6,4 +6,3 @@ class Shop:
 
     def get_items_count(self):
         return len(self.items)
-
