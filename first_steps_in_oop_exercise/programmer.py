@@ -21,5 +21,3 @@ class Programmer:
             return f"{self.name} already knows {self.language}"
         elif self.skills < skills_needed:
             return f"{self.name} needs {skills_needed - self.skills} more skills"
-
-
