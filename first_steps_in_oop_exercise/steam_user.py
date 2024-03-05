@@ -21,4 +21,3 @@ class SteamUser:
 
     def status(self):
         return f"{self.username} has {len(self.games)} games. Total play time: {self.played_hours}"
-
