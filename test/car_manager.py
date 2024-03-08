@@ -1,5 +1,3 @@
-import unittest
-
 
 class Car:
     def __init__(self, make, model, fuel_consumption, fuel_capacity):
@@ -74,7 +72,3 @@ class Car:
 
         self.__fuel_amount -= needed
 
-
-car = Car("a", "b", 1, 4)
-car.make = ""
-print(car)
