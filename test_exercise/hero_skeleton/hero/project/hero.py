@@ -4,6 +4,7 @@ class Hero:
     damage: float
     level: int
 
+
     def __init__(self, username: str, level: int, health: float, damage: float):
         self.username = username
         self.level = level
