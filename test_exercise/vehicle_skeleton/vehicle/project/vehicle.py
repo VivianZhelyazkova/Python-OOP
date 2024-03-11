@@ -1,7 +1,6 @@
 from typing import ClassVar
 
 
-
 class Vehicle:
     DEFAULT_FUEL_CONSUMPTION: ClassVar[float] = 1.25
     fuel_consumption: float
