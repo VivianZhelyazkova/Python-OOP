@@ -28,3 +28,4 @@ class Student:
             self.courses.pop(course_name)
             return "Course has been removed"
         raise Exception("Cannot remove course. Course not found.")
+
