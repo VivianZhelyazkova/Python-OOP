@@ -1,11 +1,13 @@
+from typing import List
+
 from project.user import User
 from project.movie_specification.movie import Movie
 
 
 class MovieApp:
     def __init__(self):
-        self.movies_collection = []
-        self.users_collection = []
+        self.movies_collection: List[Movie] = []
+        self.users_collection: List[User] = []
 
     def register_user(self, username: str, age: int):
         new_user = User(username, age)
@@ -26,7 +28,7 @@ class MovieApp:
         self.validate_movie_owner(username, movie)
         if movie in self.movies_collection:
             raise Exception("Movie already added to the collection!")
-
+        user_found.movies_owned.append(movie)
         self.movies_collection.append(movie)
         return f"{username} successfully added {movie.title} movie."
 
