@@ -3,11 +3,10 @@ from project.user import User
 
 
 class Movie(abc.ABC):
-    def __init__(self, title: str, owner: object, year: int, age_restriction: int):
-        self.__title = title
-        self.__year = year
-        self.__owner = owner
-        self._age_restriction = age_restriction
+    def __init__(self, title: str, year: int, owner: object):
+        self.title = title
+        self.year = year
+        self.owner = owner
         self.likes = 0
 
     @property
@@ -26,8 +25,9 @@ class Movie(abc.ABC):
 
     @year.setter
     def year(self, value):
-        if value == 1888:
+        if value < 1888:
             raise ValueError("Movies weren't made before 1888!")
+        self.__year = value
 
     @property
     def owner(self):
@@ -38,15 +38,6 @@ class Movie(abc.ABC):
         if not isinstance(value, User):
             raise ValueError("The owner must be an object of type User!")
         self.__owner = value
-
-    @property
-    def age_restriction(self):
-        return self._age_restriction
-
-    @age_restriction.setter
-    @abc.abstractmethod
-    def age_restriction(self, value):
-        pass
 
     @abc.abstractmethod
     def details(self):
