@@ -1,4 +1,4 @@
-from plantation import Plantation
+from project.plantation import Plantation
 import unittest
 
 
@@ -79,4 +79,23 @@ class TestPlantation(unittest.TestCase):
         self.assertEqual(actual_dict, expected_dict)
 
     def test_str(self):
-        expected = "Plantation size: 100"
+        self.plant.hire_worker("Pesho")
+        self.plant.hire_worker("Gosho")
+        self.plant.planting("Pesho", "Lilac")
+        self.plant.planting("Pesho", "Rose")
+        self.plant.planting("Gosho", "Peony")
+
+        expected = ("Plantation size: 100\n"
+                    "Pesho, Gosho\n"
+                    "Pesho planted: Lilac, Rose\n"
+                    "Gosho planted: Peony")
+        actual = str(self.plant)
+        self.assertEqual(actual, expected)
+
+    def test_repr(self):
+        self.plant.hire_worker("Pesho")
+        self.plant.hire_worker("Gosho")
+        expected = ("Size: 100\n"
+                    "Workers: Pesho, Gosho")
+        actual = self.plant.__repr__()
+        self.assertEqual(actual, expected)
