@@ -1,4 +1,4 @@
-from project.plantation import Plantation
+from plantation import Plantation
 import unittest
 
 
