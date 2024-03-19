@@ -12,9 +12,9 @@ class FreeDiver(BaseDiver):
             self.oxygen_level = 0
         else:
             self.oxygen_level = round(self.oxygen_level - (time_to_catch * 0.6))
-
+        if self.oxygen_level == 0:
+            self.has_health_issue = True
 
     def renew_oxy(self):
         self.oxygen_level = FreeDiver.OXYGEN_LEVEL
-
-
+        self.has_health_issue = False
