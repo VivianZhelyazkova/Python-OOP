@@ -32,6 +32,7 @@ class BaseDiver(abc.ABC):
             raise ValueError("Cannot create diver with negative oxygen level!")
         self.__oxygen_level = value
 
+
     @property
     def competition_points(self):
         return round(self.__competition_points, 1)
@@ -49,11 +50,12 @@ class BaseDiver(abc.ABC):
         pass
 
     def hit(self, fish: BaseFish):
-        self.oxygen_level -= fish.time_to_catch
-        if self.oxygen_level < 0:
+        if self.oxygen_level - fish.time_to_catch < 0:
             self.oxygen_level = 0
+            self.has_health_issue = True
 
         else:
+            self.oxygen_level -= fish.time_to_catch
             self.catch.append(fish)
             self.competition_points += round(fish.points, 1)
 
