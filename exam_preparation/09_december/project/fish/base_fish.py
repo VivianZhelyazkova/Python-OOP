@@ -23,7 +23,7 @@ class BaseFish(abc.ABC):
 
     @points.setter
     def points(self, value):
-        if int(value) not in range(1, 11):
+        if value < 1 or value > 10:
             raise ValueError("Points should be a value ranging from 1 to 10!")
         self.__points = value
 
