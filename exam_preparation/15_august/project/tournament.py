@@ -21,7 +21,7 @@ class Tournament:
 
     @name.setter
     def name(self, value):
-        if not all(char.isalnum() or char.isspace() for char in value):
+        if not value.isalnum():
             raise ValueError("Tournament name should contain letters and digits only!")
         self.__name = value
 
