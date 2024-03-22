@@ -31,7 +31,7 @@ class BaseTeam(abc.ABC):
     def country(self, value):
         if len(value.strip()) < 2:
             raise ValueError("Team country should be at least 2 symbols long!")
-        self.__country = value
+        self.__country = value.strip()
 
     @property
     def advantage(self):
@@ -59,7 +59,7 @@ class BaseTeam(abc.ABC):
                   f"Budget: {self.budget:.2f}EUR\n"
                   f"Wins: {self.wins}\n"
                   f"Total Equipment Price: {total_price_of_team_equipment:.2f}\n"
-                  f"Average Protection: {round(avg_team_protection)}")
+                  f"Average Protection: {int(avg_team_protection)}")
         return result
 
 
