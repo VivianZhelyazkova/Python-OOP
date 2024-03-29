@@ -5,7 +5,7 @@ class Player:
         self.name = name
         self.age = age
         self.stamina = stamina
-        self.need_sustenance = stamina < 100
+        self.__need_sustenance = stamina < 100
 
     @property
     def name(self):
@@ -36,9 +36,13 @@ class Player:
 
     @stamina.setter
     def stamina(self, value):
-        if value not in range(0, 101):
+        if value < 0 or value > 100:
             raise ValueError("Stamina not valid!")
         self.__stamina = value
+
+    @property
+    def need_sustenance(self):
+        return self.stamina < 100
 
     def __str__(self):
         return f"Player: {self.name}, {self.age}, {self.stamina}, {self.need_sustenance}"
