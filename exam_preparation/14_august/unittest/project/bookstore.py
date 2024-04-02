@@ -53,7 +53,7 @@ class Bookstore:
             books_left = self.availability_in_store_by_book_titles[book_title]
             raise Exception(f"{book_title} has not enough copies to sell. Left: {books_left}")
 
-        # if can sell successfully
+        # if it can sell successfully
         self.availability_in_store_by_book_titles[book_title] -= number_of_books
         self.__total_sold_books += number_of_books
         return f"Sold {number_of_books} copies of {book_title}"
