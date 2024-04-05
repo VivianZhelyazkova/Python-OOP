@@ -10,11 +10,7 @@ class Band:
     def __init__(self, name: str):
         self.name = name
         self.members: List[Musician] = []
-        self.musicians = {
-            Singer: 0,
-            Drummer: 0,
-            Guitarist: 0,
-        }
+        self.musicians = set()
 
     @property
     def name(self):
