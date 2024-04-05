@@ -10,6 +10,11 @@ from project.concert import Concert
 
 class ConcertTrackerApp:
     MUSICIANS = {"Guitarist": Guitarist, "Drummer": Drummer, "Singer": Singer}
+    GENRES_SKILLS = {
+        "Rock": {"play the drums with drumsticks", "sing high pitch notes", "play rock"},
+        "Metal": {"play the drums with drumsticks", "sing low pitch notes", "play metal"},
+        "Jazz": {"play the drums with brushes", "sing high pitch notes", "play jazz"}
+    }
 
     def __init__(self):
         self.bands: List[Band] = []
@@ -50,7 +55,7 @@ class ConcertTrackerApp:
         if not band:
             raise Exception(f"{band_name} isn't a band!")
         band.members.append(musician)
-        band.musicians[musician.__class__.__name__] += 1
+        band.musicians.add(musician.__class__.__name__)
         return f"{musician_name} was added to {band_name}."
 
     def remove_musician_from_band(self, musician_name: str, band_name: str):
@@ -61,7 +66,19 @@ class ConcertTrackerApp:
         if not musician:
             raise Exception(f"{musician_name} isn't a member of {band_name}!")
         band.members.remove(musician)
+        band.musicians.remove(musician.__class__.__name__)
         return f"{musician_name} was removed from {band_name}."
 
     def start_concert(self, concert_place: str, band_name: str):
-
+        band = next(band for band in self.bands if band.name == band_name)
+        concert = next(concert for concert in self.concerts if concert.place == concert_place)
+        bans_skills_set = set()
+        for musician in band.members:
+            for skill in musician.skills:
+                bans_skills_set.add(skill)
+        if len(band.musicians) < 3:
+            raise Exception(f"{band_name} can't start the concert because it doesn't have enough members!")
+        if not ConcertTrackerApp.GENRES_SKILLS[concert.genre].issubset(bans_skills_set):
+            raise Exception(f"The {band_name} band is not ready to play at the concert!")
+        profit = concert.audience * concert.ticket_price - concert.expenses
+        return f"{band_name} gained {profit:.2f}$ from the {concert.genre} concert in {concert_place}."
