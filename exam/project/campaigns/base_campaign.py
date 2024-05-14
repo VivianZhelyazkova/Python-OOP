@@ -15,6 +15,8 @@ class BaseCampaign(ABC):
     def campaign_id(self):
         return self.__campaign_id
 
+
+
     @campaign_id.setter
     def campaign_id(self, value):
         if value <= 0:
