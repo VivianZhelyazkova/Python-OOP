@@ -8,7 +8,6 @@ from project.influencers.premium_influencer import PremiumInfluencer
 from project.influencers.standard_influencer import StandardInfluencer
 
 
- tt
 
 class InfluencerManagerApp:
     INFLUENCERS = {
